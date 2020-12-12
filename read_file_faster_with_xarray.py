@@ -60,7 +60,7 @@ for file in files:
 
                     for i,j in zip(x,y):
                         #xarray only has lat[i].astype('float64').round(2) instead round(lat[i].astype('float64'),2)
-                        #need .values other it will because lat[i] is a xarray.Variable which MongoDB won't work
+                        #need .values because lat[i] is a xarray.Variable which won't work with MongoDB
                         list_lat.append(lat[i].values.astype('float64').round(2))  #lat and lon oringally are two decimals but float64 makes 13 decimals
                         list_lon.append(lon[j].values.astype('float64').round(2))  #need float62; Object of type 'float32' is not JSON serializable 
                         list_sst.append(sst[i][j].values.astype('float64').round(2))
